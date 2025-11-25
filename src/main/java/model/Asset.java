@@ -1,6 +1,8 @@
 package model;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
@@ -16,6 +18,8 @@ public class Asset {
     // Audit fields
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+    private Map<String, AssetAttribute> attributes = new HashMap<>();
 
     public Asset() {}
 
@@ -97,5 +101,24 @@ public class Asset {
 
     public void setUpdatedAt(final LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Map<String, AssetAttribute> getAttributes() {
+        return attributes;
+    }
+
+    public void addAttribute(final AssetAttribute attribute) {
+        if (attribute == null || attribute.getKey() == null) {
+            return;
+        }
+        attributes.put(attribute.getKey(), attribute);
+    }
+
+    public void removeAttribute(final String key) {
+        attributes.remove(key);
+    }
+
+    public AssetAttribute getAttribute(final String key) {
+        return attributes.get(key);
     }
 }
