@@ -105,7 +105,7 @@ public class AttributeManager {
             case ASSET_REFERENCE:
                 try {
                     UUID.fromString((String) value);
-                } catch (Exception e) {
+                } catch (final Exception e) {
                     throw new ValidationException("Invalid asset reference UUID");
                 }
                 break;

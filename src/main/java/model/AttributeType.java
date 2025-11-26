@@ -19,6 +19,10 @@ public enum AttributeType {
     ASSET_REFERENCE,
     EXTERNAL_REFERENCE,
 
+    // File/image types
+    FILE_REFERENCE,
+    IMAGE_FILE,
+
     // Collection/list types
     STRING_LIST,
     INTEGER_LIST,
